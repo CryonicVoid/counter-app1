@@ -44,7 +44,7 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
       incrementAmount: { type: Number, reflect: true },
       min: { type: Number, reflect: true },
       max: { type: Number, reflect: true },
-      reactionNumber: {type: Number},
+      reactionNumber: {type: Number, reflect: true},
     };
   }
 
@@ -65,13 +65,25 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
         :host([count="21"]) {
           background-color: var(--ddd-theme-default-skyLight);
         }
-
         .wrapper {
           margin: var(--ddd-spacing-2);
           padding: var(--ddd-spacing-4);
         }
         h3 span {
           font-size: var(--counter-app-label-font-size, var(--ddd-font-size-xl));
+        }
+        button {
+          background-color: var(--ddd-theme-default-creekTeal);
+          margin: var(--ddd-spacing-1);
+        }
+        button:hover {
+          background-color: var(--ddd-theme-default-limestoneGray);
+        }
+        button:focus {
+          background-color: var(--ddd-theme-default-potential0);
+        }
+        button:active {
+          background-color: var(--ddd-theme-default-potential0)
         }
       `,
     ];
