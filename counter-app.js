@@ -95,8 +95,8 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
       <confetti-container id="confetti">
         <div class="wrapper">
           <h3><span>${this.count}</span> ${this.title}</h3>
-          <button @click="${this.increment}">+</button>
-          <button @click="${this.decrement}">-</button>
+          <button @click="${this.increment}" ?disabled="${this.max === this.count}">+</button>
+          <button @click="${this.decrement}" ?disabled="${this.min === this.count}">-</button>
           <slot></slot>
         </div>
       </confetti-container>
@@ -117,6 +117,7 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
 
     if (this.min && newVal < this.min) {
       this.count = this.min;
+      
     } else {
       this.count -= this.incrementAmount;
     }
